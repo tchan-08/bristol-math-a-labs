@@ -201,3 +201,112 @@ $2(4m^3 + 6m^2 + 2m) equiv 2p, p in ZZ$
 Hence, when $n$ is odd, $n^3 - n$ is even.
 
 *Therefore, claim is $top$*
+
+4. 
+Prove each of the following existential statements by providing a witness. State the witness explicitly and verify that it satisfies the predicate.
+
+a. $exists x: ZZ. space x^2 = x$
+
+$x = 1$
+
+$1^2 = 1$
+
+b. $exists x: ZZ. space x + 1 > x$
+
+$x = 3$
+
+$3+1 = 4$
+
+c. $exists x: ZZ, space x^2 > x$
+
+$x = -5$
+
+$(-5)^2 = 25$
+
+5. 
+For each statement below, decide whether to disprove it (find a counterexample) or prove it. If
+disproving, give an explicit counterexample and explain why it works. If proving, use the arbitrary element strategy.
+
+a. $forall x: ZZ. space x^2 > x$
+
+Let $x = 1$
+
+$x^2 = 1^2 = 1 gt.not 1$
+
+*Thus, statement is $bot$*
+
+b. $forall x: RR. space x^2 >= 0$
+
+Let $x$ be an arbitrary real number
+
+Case 1: $x < 0$
+
+Any negative real multiplied by itself is positive
+
+Case 2: $x > 0$
+
+Any positive real multiplied by itself is positive
+
+Case 3: $x = 0$
+
+Any zero-value multiplied by itself is zero-value
+
+*Therefore, statement is $top$*
+
+c. $forall x: ZZ. space x^2 >= x$
+
+Let $x$ be an arbitrary integer
+
+Case 1: $x$ > 0
+
+Any positive integer squared is bigger than the integer
+
+Case 2: $x < 0$
+
+Any negative integer squared is bigger than the integer 
+
+Case 3: $x = 0$
+
+Any zero-value is equal to zero
+
+*Therefore, statement is $top$*
+
+10. 
+Write a formal natural deduction proof of the following claims. Use the rules $forall$ introduction, $forall$
+elimination, $=>$ introduction, and $=>$ elimination, stating which lines each step depends on.
+
+*Claim*: Given $forall x. space (S(x) => W(x))$, and $forall x. space (W(x) => P(x))$, prove that $forall x. space (S(x) => P(x))$, where $S(x)$: $x$ is a student; $W(x)$: $x$ works hard; $P(x)$: $x$ passes.
+
+Let $x$ be an arbitrary student.
+
+#proof(
+    premise(1, $forall x. space (S(x) => W(x))$),
+    premise(2, $forall x. space (W(x) => P(x))$),
+    subproof(
+        assume(3, $S(x)$),
+        step(4, $S(x) => W(x)$, rule: $forall E, [1]$),
+        step(5, $W(x)$, rule: $=> E, [1]$),
+        step(6, $W(x) => P(x)$, rule: $forall E, [2]$),
+        step(7, $P(x)$, rule: $=> E, [2]$)
+    ),
+    step(8, $S(x) => P(x)$, rule: $=> I, [3:7]$),
+    step(9, $forall x. space (S(x) => P(x))$, rule:$forall I, [8]$)
+)
+#pagebreak()
+*Claim* Given $forall x. exists y. space L(x,y)$ and $forall x. forall y. space (L(x,y) => F(x,y))$, prove that $forall x. exists y. space F(x,y)$, where $L(x,y)$: x likes y and $F(x,y)$: x is friends with y.
+
+Let $x$ be an arbitrary person.
+
+#proof(
+    premise(1, $forall x. exists y. space L(x,y)$),
+    premise(2, $forall x. forall y. space (L(x,y) => F(x,y))$),
+    subproof(
+        step(3, $exists y. space L(x,y)$, rule: $forall E, [1]$),
+        step(4, $a, L(x,a)$, rule:$exists E, [3]$),
+        step(5, $forall y. space (L(x,y) => F(x,y))$, rule: $forall E, [2]$),
+        step(6, $L(x,a) => F(x,a)$, rule: $forall E, [5]$),
+        step(7, $F(x,a)$, rule: $=> E, [4:6]$),
+        step(8, $exists y. space F(x,y)$, rule: $exists I, [7]$)
+        ),
+    step(9, $forall x. exists y. space F(x,y)$, rule: $forall I, [8]$)
+)
