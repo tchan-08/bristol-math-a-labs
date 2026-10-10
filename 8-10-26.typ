@@ -271,7 +271,7 @@ Any zero-value is equal to zero
 
 *Therefore, statement is $top$*
 
-10. 
+6. 
 Write a formal natural deduction proof of the following claims. Use the rules $forall$ introduction, $forall$
 elimination, $=>$ introduction, and $=>$ elimination, stating which lines each step depends on.
 
@@ -309,4 +309,24 @@ Let $x$ be an arbitrary person.
         step(8, $exists y. space F(x,y)$, rule: $exists I, [7]$)
         ),
     step(9, $forall x. exists y. space F(x,y)$, rule: $forall I, [8]$)
+)
+
+*Claim*: Given $forall x. space (P(x) => S(x))$, $exists x. space P(x)$, and $forall x. space (S(x) => exists y. space R(x,y))$, prove $exists x. exists y. space R(x,y)$, where $P(x)$: $x$ is a professor; $S(x)$: $x$ is a scientist; $R(x,y)$: $x$ researches $y$. 
+
+Let $x$ be an arbitrary person.
+
+#proof(
+    premise(1, $forall x. space (P(x) => S(x))$),
+    premise(2, $exists x. space P(x)$),
+    premise(3, $forall x. space (S(x) => exists y. space R(x,y))$),
+    subproof(
+        step(4, $a, P(a)$, rule: $exists E, [2]$),
+        step(5, $P(a) => S(a)$, rule: $forall E, [1]$),
+        step(6, $S(a)$, rule: $=> E, [4,5]$),
+        step(7, $S(a) => exists y. space R(a,y)$, rule: $forall E, [3]$),
+        step(8, $exists y. space R(a,y)$, rule: $=> E, [6,7]$),
+        step(9, $b, R(a, b)$, rule: $exists E, [8]$),
+        step(10, $exists y. R(a, y)$, rule: $exists I, [9]$)
+    ),
+    step(11, $exists x. exists y. R(x,y)$, rule: $exists I, [10]$)
 )
