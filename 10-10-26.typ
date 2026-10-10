@@ -292,3 +292,23 @@ Let $x$ be an arbitrary real number.
 $x^2 >= 0$, as all real numbers squared are non-negative.
 
 *Hence, statement is $top$*
+
+c. $forall x : ZZ. x^2 + 2x + 1 >= 0$
+
+Let $x$ be an arbitrary integer.
+
+$x^2 + 2x + 1 = (x+1)^2$
+
+$(x+1)^2 >= 0$ as all integers squared are non-negative.
+
+*Hence, statement is $top$*
+
+d. $forall x : ZZ. x^3 >= x$
+
+Let $x = -2$
+
+$x^3 = -8$
+
+$-8 gt.eq.not -2 space {x^3 gt.eq.not x}$
+
+*Hence, statement is $bot$*
