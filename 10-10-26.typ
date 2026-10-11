@@ -312,3 +312,122 @@ $x^3 = -8$
 $-8 gt.eq.not -2 space {x^3 gt.eq.not x}$
 
 *Hence, statement is $bot$*
+=
+12. 
+
+For each pair of statements below, decide which are true and which are false over the integers, and justify your answer with a witness, an arbitrary-element
+argument, or a counterexample.
+
+a. 
+_(1)_ $forall x in ZZ. exists y in ZZ. x+y = 0$ and 
+
+_(2)_ $exists y in ZZ. forall x in ZZ. x+y = 0$
+
+_(1):_
+
+Let $x$ be an arbitrary integer.
+
+A negated form of $x$, $-x$ exists, such that $x+-x = 0$
+
+*Hence, the statement is $top$*
+
+_(2):_
+
+Let $y = 2$
+
+Only x = -2, satisfies $x + y = 0$
+
+Thus, not all $x$ satisfies the statement
+
+*Hence, the statement is $bot$*
+
+b. 
+
+_(1)_ $forall x in ZZ. exists y in ZZ. y > x$
+
+_(2)_ $exists y in ZZ. forall x in ZZ. y > x$
+
+_(1):_
+
+Let $x$ be an arbitrary integer.
+
+As there is no greatest $x$, there must exist a $y$, such that $y > x$
+
+*Hence, the statement is $top$*
+
+_(2):_ 
+
+Let $y$ be an arbitrary integer.
+
+As there is no greatest integer, there must exist an $x$, such that $x > y$
+
+Hence, not all $x$ satisfies $y > x$
+
+*Thus, the statement is $bot$*
+#pagebreak()
+
+13.
+
+For each of the following, write a formal natural deduction proof. Use only the rules ∀ introduc-
+tion, ∀ elimination, ⇒ introduction and ⇒ elimination, and state which lines each step depends
+on.
+=
+a. _Given $forall x. (C(x) => A(x))$, and $C(T)$, prove $A(T)$_
+
+#proof(
+  premise(1, $forall x. (C(x) => A(x))$),
+  premise(2, $C(T)$),
+  step(3, $C(T) => A(T)$, rule:$forall E space [1]$),
+  step(4, $A(T)$, rule:$=> E space [2,3]$)
+)
+
+
+b. _Given $forall x. (P(x) => (Q(x) => R(x)))$ and $forall x. P(x)$, prove $forall x. (Q(x) => R(x))$_
+
+#proof(
+  premise(1, $forall x. (P(x) => (Q(x) => R(x)))$),
+  premise(2, $forall x. P(x)$),
+  subproof(
+    assume(3, $a$),
+    step(4, $P(a) => (Q(a) => R(a))$, rule:$forall E space [1]$),
+    step(5, $P(a)$, rule:$forall E space [2]$),
+    step(6, $Q(a) => R(a)$, rule:$=> E space [4,5]$)
+  ),
+  step(7, $forall x. (Q(x) => R(x))$, rule:$forall I space [3:6]$)
+)
+
+c. _Given $forall x. (A(x) => B(x))$, prove $(forall x. A(x)) => (forall x. B(x))$_
+
+#proof(
+  premise(1, $forall x. (A(x) => B(x))$),
+  subproof(
+    assume(2, $forall x. A(x)$),
+    subproof(
+      assume(3, $a$),
+      step(4, $A(a)$, rule:$forall E space [2]$),
+      step(5, $A(a) => B(a)$, rule:$forall E space [1]$),
+      step(6, $B(a)$, rule: $=> E space [4,5]$)
+    ),
+    step(7, $forall x. B(x)$, rule:$forall I space [3:6]$)
+  ),
+  step(8, $(forall x. A(x)) => (forall x. B(x))$, rule:$forall I space [2:7]$)
+)
+#pagebreak()
+d. Let $L(x)$: "$x$ is a logician", $M(x)$: "$x$ is methodical" and $H(x)$: "$x$ is happy". Given $forall x. (L(x) => (M(x) => H(x)))$ and $forall x. (L(x) => M(x))$, prove $forall x. (L(x) => H(x))$.
+
+#proof(
+  premise(1, $forall x. (L(x) => (M(x) => H(x)))$),
+  premise(2, $forall x. (L(x) => M(x))$),
+  subproof(
+    assume(3, $a$),
+    step(4, $L(a) => M(a)$, rule:$forall E space [2]$),
+    step(5, $L(a) => (M(a) => H(a))$, rule:$forall E [1]$),
+    subproof(
+      assume(6, $L(a)$),
+      step(7, $M(a)$, rule:$=> E space [4,6]$),
+      step(8, $H(a)$, rule:$=> E space [5,6]$),
+    ),
+    step(9, $L(a) => H(a)$, rule:$=> I space [6:8]$)
+  ),
+  step(10, $forall x. (L(x) => H(x))$, rule:$forall I space [3:9]$)
+)
