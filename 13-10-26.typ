@@ -210,3 +210,15 @@ b. $(A Delta B) Delta C = A Delta (B Delta C)$
 - $x in A Delta (B Delta C)$
 
 - $top$
+
+c. $A Delta A = emptyset$
+
+- Let $x in A Delta A$, where $x$ is an arbitrary element.
+
+- $x in (A-A) union (A-A)$
+
+- $x in emptyset union emptyset$
+
+- $x in emptyset$
+
+- $top$
