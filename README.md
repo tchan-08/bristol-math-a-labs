@@ -8,4 +8,4 @@ Topics include:
 - Set theory
 - Probability
 
-Files are written in *typst* and are labelled by the worksheet deadlines.
+Files are written in **typst** and are labelled by the worksheet deadlines.
