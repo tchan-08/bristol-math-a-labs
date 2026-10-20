@@ -31,7 +31,7 @@ $O={1,2,5,10,17,26}$
 =
 4. For $A={0,1,2}$, compute the set ${(3x+1) mod 6 | x in A}$, where $a mod b$ is the remainder when dividing $a$ by $b$. How many elements does this set have?
 
-Applying the operation to $A$ gives: ${0,4,1}$, giving 3 elements.
+Applying the operation to $A$ gives: ${4,1}$, giving 2 elements.
 =
 5. Give an example of a surjective function that does not have an inverse.
 
@@ -103,4 +103,48 @@ $g compose f equiv g(f(a)) = 2(a+1 mod 3) mod 3$
 
 $g compose f = {2,1,0}$
 =
-TODO: Q10, Q11
+10. Note that not all books define function composition the same way. Use the definition in the lecture.
+
+  a. On $RR -> RR$, consider the functions $f(x)=2x, g(x)=x+1$, and $h(x)=x^2$. What is the function $k= f compose h compose g$?
+
+  $f compose h compose g = f(h(g(x)))$
+
+  $k = f(h(x+1))$
+
+  $= f((x+1)^2)$
+
+  $= 2((x+1)^2)$
+
+  $= 2(x^2 + 2x + 1)$
+
+  $= 2x^2+4x+2$
+
+  b. The same as above, but for the function $j = g compose h compose f$?
+
+  $g compose h compose f = g(h(f))$
+
+  $j = g(h(2x))$
+
+  $= g((2x)^2)$
+
+  $= (2x)^2 + 1$
+
+  $=4x^2 + 1$
+
+  c. On the set $S={1,2,3,4}$, consider the functions $f,g$ with signature $S->S$ defined as \ $f={(1,2),(2,4),(4,1),(3,3)}$ and $g={(1,3),(3,1),(2,2),(4,2)}$. \ What is $f compose g compose g$ both as a function, and evaluated at 2?
+
+  $f compose g compose g=f(g(g))$
+
+  $f compose g compose g$
+
+  | $1 -> 2$
+
+  | $2 -> 4$
+
+  | $3 -> 3$
+
+  | $4 -> 4$ 
+=
+11. $f: A -> B$ and $g: B -> C$. If $g compose f$ is injective, what can you say about $f$ and $g$?
+
+$f$ is injective, $g$ doesn't have to be injective.
