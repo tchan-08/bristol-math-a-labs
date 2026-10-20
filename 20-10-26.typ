@@ -105,7 +105,7 @@ $g compose f = {2,1,0}$
 =
 10. Note that not all books define function composition the same way. Use the definition in the lecture.
 
-  a. On $RR -> RR$, consider the functions $f(x)=2x, g(x)=x+1$, and $h(x)=x^2$. What is the function $k= f compose h compose g$?
+  a. On $RR -> RR$, consider the functions $f(x)=2x, g(x)=x+1$, and $h(x)=x^2$. What is the function $k= f compose h compose g$, both as a function and evaluated at $x=4$?
 
   $f compose h compose g = f(h(g(x)))$
 
@@ -118,6 +118,8 @@ $g compose f = {2,1,0}$
   $= 2(x^2 + 2x + 1)$
 
   $= 2x^2+4x+2$
+
+  $f compose h compose g$ at 4 $= 50$
 
   b. The same as above, but for the function $j = g compose h compose f$?
 
