@@ -147,4 +147,4 @@ $g compose f = {2,1,0}$
 =
 11. $f: A -> B$ and $g: B -> C$. If $g compose f$ is injective, what can you say about $f$ and $g$?
 
-$f$ is injective, $g$ doesn't have to be injective.
+$f$ is injective, $g$ doesn't have to be injective. This is because $f$ needs to have unique outputs, for $g$ to produce unique outputs. $g$ doesn't necessarily need to be injective, as it only needs to map unique outputs to the image of $f$, not the entire set of $B$.
