@@ -169,6 +169,69 @@ Ching and even came up with the analogy *yin=0*, *yang=1*, so the invention of b
 
     - Partial $crossmark$: Not antisymmetric nor transitive.
 
-    - Totality $crossmark$: Not partial.
+    - Totality $crossmark$: $not (S("earth", "thunder") and S("thunder", "earth"))$
 
+    c. The relation $T$ on the set of eight trigrams is defined as follows: $T(A,B)$ if $A$ and $B$ have the same number of _yin_ lines.
+
+    *What kind of relation is $T$, which of the properties of relations does it have?*
+
+    - Reflexivity $checkmark$: $T("heaven","heaven")$
+
+    - Symmetric $checkmark$: $T("lake", "fire") and T("fire", "lake")$
+
+    - Antisymmetric $crossmark$: $T("lake", "fire") and T("fire", "lake") and "fire" eq.not "lake"$
+
+    - Transitive $checkmark$: $T("lake", "fire") and T("fire", "wind") and T("lake", "wind")$
+
+    - Partial $crossmark$: Not antisymmetric
     
+    - Equivalence $checkmark$: Reflexive, symmetric and transitive
+
+    - Totality $crossmark$: Heaven has no relation with any other trigram
+=
+7. On the set $A=ZZ$, define a relation $R$ by
+$ R(a,b) <==> |a| = |b| $
+
+    a. Prove that $R$ is an equivalence relation.
+
+    Let $(a,a) in R$
+
+    $|a| = |a|$
+
+    Therefore, $R$ is reflexive.
+
+    Let $(a,b) in R$
+
+    $(|a| = |b|) and (|b| = |a|)$
+
+    $R(a,b) and R(b,a)$
+
+    Therefore, $R$ is symmetric.
+
+    Let $(a,b) in R, (b,c) in R$
+
+    $|a| = |b|$
+
+    $|b| = |c|$
+
+    $|a| = |c|$
+
+    Therefore, $R$ is transitive.
+
+    Hence, $R$ is an equivalence relation.
+    #colbreak()
+    b. Describe all equivalence classes of $R$.
+
+    As we're dealing with the integers, containing both positive and negative whole numbers, we can group our equivalence classes by whether they're equivalent to a positive integer. 
+
+    Examples:
+
+    $ [1] = {-1,1} $
+
+    $ [2] = {-2,2} $
+
+    $ [67] = {-67, 67} $
+
+This can be generalised by: $ [x] = {-x, x}, x in ZZ^+ $
+
+In the case of zero: $ [0] = {0} $
