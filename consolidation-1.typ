@@ -356,3 +356,27 @@ b. Prove the claim.
     step(11, $b$, rule: $or E space [5:9]$),
     step(12, $((t or b) and (t => m) and not m) => b$, rule: $=> I space [1:10]$)
 )
+= Section 5: Predicates
+#divider()
+5.1. For each formula, list its free variables.
+
+a. $forall x. space (p(x,y) and q(x))$: $y$ is a free variable.
+
+b. $(forall x. space p(x)) and q(x)$: $x$ is a free variable.
+
+c. $exists x. forall y. space (r(x,y) => s(z))$: $z$ is a free variable.
+5.2. Let the domain be all users of a social network, let $F(x,y)$ mean "$x$ follows $y$", and let the constant $Z$ denote Zoe. Write each statement as a formula.
+
+a. "Zoe follows everyone who follows her.": $forall x. space (F(x,Z) => F(Z,x))$
+
+b. "Everybody follows somebody.": $forall x. exists y. space F(x,y)$
+
+c. "Somebody is followed by everybody.": $exists y. forall x. space F(x,y)$
+
+d. "There is somebody whom Zoe follows, but who does not follow Zoe.": $exists x. space (F(Z,x) and not F(x,Z))$
+#pagebreak()
+5.3. In the following, $s$ ranges over servers and $j$ over jobs. $D(s)$ means "server $s$ is down", $C(j)$ means "job $j$ has crashed", and $R(s,j)$ means "job $j$ is running on server $s$". Translate each formula into natural language.
+
+a. $forall s. space (D(s) => not exists j . space R(s,j))$: "Every server that is down has no jobs running on it."
+
+b. $forall j. space (C(j) => exists s. space (D(s) and R(s,j)))$: "If a job has crashed, then there's a server that is down but still running jobs on it."
