@@ -285,7 +285,7 @@ c. If $phi and psi => rho$ is a tautology, then $phi => rho$ is a tautology, or 
 
 This statement is false. Consider $phi, psi, rho = p, not p, bot$. The overall expression holds, but both conclusions do not.
 #pagebreak()
-= Section 3: Natural Deduction (Part 1)
+= Section 3: Natural Deduction
 #divider()
 3.1. Write a natural deduction proof of $(p => q) and (r => s) => (p and r => q and s)$
 
@@ -297,11 +297,11 @@ This statement is false. Consider $phi, psi, rho = p, not p, bot$. The overall e
         assume(4, $p and r$),
         step(5, $p$, rule: $and E space [4]$),
         step(6, $r$, rule: $and E space [4]$),
-        step(7, $q$, rule: $=> I space [2]$),
-        step(8, $s$, rule: $=> I space [3]$),
+        step(7, $q$, rule: $=> E space [2,5]$),
+        step(8, $s$, rule: $=> E space [3,6]$),
         step(9, $q and s$, rule: $and I space [7,8]$),
+        step(10, $p and r => q and s$)
     ),
-    step(10, $p and r => q and s$, rule: $=> I space [4:9]$),
     step(11, $(p => q) and (r => s) => (p and r => q and s)$, rule: $=> I space [1:10]$)
 )
 =
@@ -324,4 +324,35 @@ This statement is false. Consider $phi, psi, rho = p, not p, bot$. The overall e
         step(9, $q => (r => s)$, rule: $=> I space [3,8]$),
     ),
     step(10, $p => (q => (r => s))$, rule: $=> I space [2,9]$),
+)
+#pagebreak()
+3.3. Formalise the following argument and prove it in natural deduction (you may use double negation elimination).
+
+#align(center)[
+    "Either the train is late or the bus is late. If the train is late, I will miss my meeting. I will not miss my meeting. Therefore, the bus is late".
+
+    Let $t$ mean "the train is late", $b$ "the bus is late" and $m$ "I will miss my meeting".
+]
+
+a. State the argument as a single claim (a formula). $((t or b) and (t => m) and not m) => b$
+
+b. Prove the claim.
+
+#proof(
+    assume(1, $(t or b) and (t => m) and not m$),
+    step(2, $t or b$, rule: $and E space [1]$),
+    step(3, $t => m$, rule: $and E space [1]$),
+    step(4, $not m$, rule: $and E space [1]$),
+    subproof(
+        assume(5, $t$),
+        step(6, $m$, rule: $=> E space [3,5]$),
+        step(7, $bot$, rule: $not E space [4,6]$),
+        step(8, $b$, rule: $bot E space [7]$)
+    ),
+    subproof(
+        assume(9, $b$),
+        step(10, $b$, rule: $R space [9]$)
+    ),
+    step(11, $b$, rule: $or E space [5:9]$),
+    step(12, $((t or b) and (t => m) and not m) => b$, rule: $=> I space [1:10]$)
 )
