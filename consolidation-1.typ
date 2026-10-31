@@ -356,7 +356,7 @@ b. Prove the claim.
     step(11, $b$, rule: $or E space [5:9]$),
     step(12, $((t or b) and (t => m) and not m) => b$, rule: $=> I space [1:10]$)
 )
-= Section 5: Predicates
+= Section 4: Predicates
 #divider()
 5.1. For each formula, list its free variables.
 
@@ -380,3 +380,257 @@ d. "There is somebody whom Zoe follows, but who does not follow Zoe.": $exists x
 a. $forall s. space (D(s) => not exists j . space R(s,j))$: "Every server that is down has no jobs running on it."
 
 b. $forall j. space (C(j) => exists s. space (D(s) and R(s,j)))$: "If a job has crashed, then there's a server that is down but still running jobs on it."
+=
+5.4. Let the domain be all people at a university. For each statement below: (i) define suitable predicates and write the statement as a formula; (ii) negate it and simplify so that negation only appears directly in front of predicates; (iii) state the negation in natural language, without simply writing "it is not true that...".
+
+a. Some student is liked by every lecturer.
+
+i. Let $L(x,y)$ denote that lecturer $x$ likes $y$. $exists y. forall x. space L(x,y)$
+
+ii. $not (exists y. forall x. space L(x,y)) equiv forall y. exists x. space not L(x,y)$
+
+iii. "Every student is disliked by at least one lecturer."
+
+b. No lecturer is both late and unprepared.
+
+i. Let $L(x)$ mean that $x$ is late and $U(x)$ denote that $x$ is unprepared. $forall x. space not(L(x) and U(x))$
+
+ii. $not (forall x. space not(L(x) and U(x))) equiv exists x. space (L(x) and U(x))$
+
+iii. "There is a lecturer that is both late and unprepared."
+=
+5.5. Work over the domain of the integers $ZZ$.
+
+a. Let $P(x)$ be the statement $x^2 <= x + 2$. Determine the truth value of the following:
+
+i. $P(-2): bot$
+
+ii. $P(2): top$
+
+iii. $exists x. space P(x): top$ e.g. $P(2)$
+
+iv. $forall x. space P(x): bot$ e.g. $P(-2)$
+
+v. $exists x. space not P(x): top$ e.g. $P(-2)$
+
+b. Translate each statement into natural language and decide whether it is true over the domain of integers. Give a brief justification.
+
+i. $forall x. exists y. space x + y = 0:$ "All integers $x$ have another integer $y$, such that they sum to 0."
+
+This is true, as all integers have an inverse, that when summed with the original number lead to 0.
+
+ii. $exists x. forall y. space x <= y:$ "There is an integer $x$ that is less than all integers $y$."
+
+This is false, as the set of integers is infinite, meaning that there will always be a $y$ less than $x$.
+
+iii. $forall x. forall y. space (x < y => exists z. space (x < z and z < y)):$ "For any pair of integers $x,y$, if $x$ is less than $y$, there will be an integer $z$ in between them."
+
+This is false, as integers can only be whole numbers. Consider $x=1,y=2$. There is no integer $z$ between the two.
+=
+5.6. Which of the following formulas are identical to $forall x. space (p(x) => exists y. space q(x,y,z))$ after renaming bound variables? Select all that apply.
+
+a. $forall y. space (p(y) => exists x. space q(y,x,z)): checkmark$
+
+b. $forall y. space (p(y) => exists x. space q(x,y,z)): crossmark$
+
+c. $forall z. space (p(z) => exists y. space q(z,y,z)): checkmark$
+
+d. $forall w. space (p(w) => exists v. space q(w,v,z)): checkmark$
+
+e. $forall x. (p(x) => exists x. space q(x,x,z)): crossmark$
+
+= Section 5: Predicate Logic and Proofs
+#divider()
+_In this section, an integer $n$ is *even* if $n = 2k, k in ZZ$, and *odd* if $n = 2k + 1, k in ZZ$._
+
+6.1. Let the domain be of all users of a social network, let $F(x,y)$ mean "$x$ follows $y$", and let the constant $Z$ denote Zoe. You may use equality. Write each statement as a well-formed formula.
+
+a. "Zoe follows exactly one person.": 
+
+$exists !y. space F(Z,y)$
+
+b. "At most two people follow Zoe.": 
+
+$exists x. exists y. exists w. space (F(x,Z) and F(y,Z) and F(w,Z) => (x = y or x = z or y = z))$
+=
+6.2. Use a _direct proof_ to show: if $a, b$ are odd integers, then $a b + a + b$ is odd.
+
+Let $a = 2n + 1$ and $b = 2m + 1$, where $n,m in ZZ$
+
+$a b + a + b equiv (2n + 1)(2m + 1) + (2n + 1) + (2m + 1)$
+
+$= 4 n m + 4n + 4m + 3$
+
+$= 2(n m + 2n + 2m) + 3$
+
+$= 2k + 1, k = n m + 2n + 2m + 1$
+
+_Therefore, $a b + a + b$ is odd._
+=
+6.3. Use _proof of the contrapositive_ to show: for every integer $n$ if $3n + 2$ is odd, then $n$ is odd.
+
+Prove: If $n$ is even, then $3n + 2$ is even.
+
+Let $n = 2m, m in ZZ$
+
+$3n + 2 equiv 3(2m) + 2$
+
+$= 6m + 2$
+
+$= 2(3m + 1)$
+
+$= 2k$
+
+_Therefore, if $3n + 2$ is odd, then $n$ is odd._
+=
+6.4. Use _proof by contradiction_ to show that there are no integers $x,y$ with $x^2 - y^2 = 2$.
+
+Assume that there are integers $x,y$ such that $x^2 - y^2 = 2$ 
+
+$x^2 - y^2 = 2 equiv (x-y)(x+y) = 2$
+
+$((x-y),(x+y))$ can either be: $(1,2), (-1,-2), (2,1), (-2,-1)$
+
+$(x+y) - (x-y) = 2y$
+
+As the difference between the factors are even, this means that they have the same parity.
+
+This is a contradiction.
+
+_Therefore, there are no integers $x,y$ such that $x^2-y^2 = 2$_
+=
+6.5. Use _case distinction_ to show that $n^2 + 3n + 4$ is even for every integer $n$.
+
+Case 1: $n$ is even.
+
+Let $n = 2m, m in ZZ$
+
+$n^2 + 3n + 4 equiv (2m)^2 + 3(2m) + 4$
+
+$= 4m^2 + 6m + 4$
+
+$= 2(2m^2 + 3m + 2)$
+
+$= 2k$
+
+Case 2: $n$ is odd.
+
+Let $n = 2m + 1, m in ZZ$
+
+$n^2 + 3m + 4 equiv (2m+1)^2 + 3(2m + 1) + 4$
+
+$= 4m^2 + 10m + 8$
+
+$= 2(m^2 + 5m + 4)$
+
+$= 2k$
+
+_Therefore, $n^2 + 3n + 4$ is even for every integer $n$_
+=
+6.6. For each statement, decide whether it is true. If it is, prove it: give an explicit witness for an existential statement, or use an arbitrary element for a universal one. If it is false, give a counterexample and explain why it works.
+
+a. $exists x in ZZ. space x^2 + x = 6: top$ e.g. $x = 2$
+
+b. $forall x in RR. space x^2 - 4x + 5 > 0: top$
+
+Let $x$ be an arbitrary real number.
+
+$x^2 - 4x + 5 equiv (x-2)^2 + 1$
+
+$(x-2)^2 >= 0$
+
+$(x-2)^2 > 0$
+
+_Therefore, proven._
+
+c. $forall x in ZZ. space x^2 > 2x: bot$ e.g. $x = 0$, plugging this in gives us $0 > 0$, which is false.
+=
+6.7. Given the premises $forall x. space (P(x) => Q(x))$ and $forall x. space P(x)$, give a natural deduction proof of $forall x. space Q(x)$.
+
+#proof(
+    premise(1, $forall x. space (P(x) => Q(x))$),
+    premise(2, $forall x. space P(x)$),
+    step(3, $"Let" a "be an arbitrary element."$),
+    step(4, $P(a)$, rule: $forall E space [2]$),
+    step(5, $P(a) => Q(a)$, rule: $forall E space [1]$),
+    step(6, $Q(a)$, rule: $=> E space [5,7]$),
+    step(7, $forall x. space Q(x)$, rule: $forall I space [6]$)
+)
+
+= Section 6: Sets
+#divider()
+7.1. Let the universe be $cal(U)={1,2,...,12}$ and let:
+
+ $A={2,4,6,8,10,12}, B={3,6,9,12},C={1,2,3,4,5,6}$
+
+ Write each of the following sets explicitly, and state its cardinality.
+
+ a. $overline(A) inter B = {3,9}, |overline(A) inter B| = 2$
+
+ b. $(A union C) \\ B = {1,2,4,5,8,10}, |(A union C) \\ B| = 6$
+
+ c. $overline(A union B) union C = {1,5,7,11}, |overline(A union B) union C| = 4$
+=
+7.2. For each property below, what can you deduce about the sets of $A$ and $B$ if it holds?
+
+a. $A \\ B = emptyset: A subset.eq B$
+
+b. $A \\ B = A: B subset.eq overline(A)$
+
+c. $A union B = cal(U): overline(A) subset.eq B$
+=
+7.3. Let $A,B,C$ be sets in a universe $cal(U)$.
+
+a. State De Morgan's laws for sets. 
+
+- $overline(A inter B) = overline(A) union overline(B)$
+
+- $overline(A union B) = overline(A) inter overline(B)$
+
+b. Prove, by an element-wise argument, that $A \\ (B inter C) = (A \\ B) union (A \\ C)$ for all sets $A,B,C$.
+
+1. $A \\ (B inter C) = A inter (overline(B inter C))$
+
+2. $A inter (overline(B inter C)) = A inter (overline(B) union overline(C))$
+
+3. $A inter (overline(B) union overline(C)) = (A inter overline(B)) union (A inter overline(C))$
+
+4. $(A inter overline(B)) union (A inter overline(C)) = (A \\ B) union (A \\ C)$
+
+7.4. Prove or disprove each of the following for all sets $A,B,C$. For a false statement, give a concrete counterexample.
+
+a. $(A union B) \\ C = A union (B \\ C)$
+
+Consider $A={1},B={2},C={1}$
+
+$(A union B) \\ C = {2}$
+
+$A union (B \\ C) = {1,2}$
+
+${2} != {1,2}$, thus false.
+
+b. $A inter (B \\ C) = (A inter B) \\ (A inter C)$
+
+1. $A inter (B \\ C) = A inter (B inter overline(C))$
+
+2. $A inter (B inter overline(C)) = (A inter B) inter (A inter overline(C))$
+
+3. $(A inter B) inter (A inter overline(C)) = A inter B inter overline(C)$
+
+4. $(A inter B) \\ (A inter C) = (A inter B) inter (overline(A inter C))$
+
+5. $(A inter B) inter (overline(A inter C)) = A inter B inter (overline(A) union overline(C))$
+
+6. $A inter B inter (overline(A) union overline(C)) = (A inter B inter overline(A)) union (A inter B inter overline(C))$
+
+7. $(A inter B inter overline(A)) union (A inter B inter overline(C)) = A inter B inter overline(C)$
+
+Thus true.
+
+c. $(A \\ B) union B = A$
+
+Consider $A={1},B={1,2}$
+
+$(A \\ B) union B = {1,2}$
+
+${1} != {1,2}$, thus false.
