@@ -634,3 +634,131 @@ Consider $A={1},B={1,2}$
 $(A \\ B) union B = {1,2}$
 
 ${1} != {1,2}$, thus false.
+=
+7.5. The symmetric difference of two sets is defined as $A Delta B = (A \\ B) union (B \\ A)$. \ Prove that, for all sets $A and B$:
+
+a. $A Delta B = (A union B) \\ (A inter B)$
+
+$A Delta B = (A \\ B) union (B \\ A)$
+
+$= (A inter overline(B)) union (B inter overline(A))$
+
+$= (A inter overline(B) union B) inter (A inter overline(B) union overline(A))$
+
+$= (A union B) inter (overline(A) union overline(B))$
+
+$= (A union B) \\ overline((A inter B))$
+
+$= (A \\ B) union (B \\ A)$
+
+b. $A Delta B = emptyset <==> A = B$
+
+Case 1: $A Delta B = emptyset => A = B$
+
+$(A \\ B) union (B \\ A) = emptyset$
+
+Since the union of the two sets is empty, both sets must be empty.
+
+Therefore, $A subset.eq B$ and $B subset.eq A$, hence $A = B$
+
+Case 2: $A = B => A Delta B = emptyset$
+
+$A = B$
+
+This means that every element is the same
+
+The symmetric difference is defined as: $A Delta B = (A \\ B) union (B \\ A)$
+
+Since both sets are equal to each other, both sides of the union are empty (as there are no differences).
+
+The union of two empty sets is an empty set.
+
+Therefore $A Delta B = emptyset$, hence $A Delta B = emptyset <==> A = B$.
+=
+7.6. Questions on set membership and subsets.
+
+a. Find non-empty sets $A,B$ such that both $A in B$ and $A subset.eq B$.
+
+Consider $A={{0}},B={{0},1}$.
+
+$A in B and A subset.eq B$
+
+b. Find non-empty sets $A,B$ such that $A subset.eq cal(P)(B)$ but $A subset.eq.not B$.
+
+Consider $A={{0}},B={0,1}$
+
+$cal(P)(B)={emptyset,{0},{1},{0,1}}$
+
+$A subset.eq cal(P)(B) and A subset.eq.not B$
+
+c. True or false?
+
+i. $emptyset in {emptyset}: top$
+
+ii. $emptyset subset.eq {emptyset}: top$
+
+iii. ${emptyset} in {emptyset}: bot$
+
+iv. ${emptyset} subset.eq {{emptyset}}: top$
+=
+7.7. Questions on families of sets.
+
+a. Let ${A_i}_(i in I)$ be a family of subsets of a universe $cal(U)$. Prove that $overline(inter.big_(i in I) A_i) = union.big_(i in I) overline(A_i)$.
+
+Let $n, m$ be the indexes of the first and last subsets in family ${A_i}_(i in I)$.
+
+$overline(inter.big_(i in I) A_i) = overline(A_n inter A_(n+1) inter ... inter A_(m-1) inter A_m)$
+
+By De Morgan's Laws: $overline(A_n) union ... union overline(A_m)$
+
+This is equivalent to: $union.big_(i in I) overline(A_i)$.
+
+b. For each positive integer $i$, let $A_i = {x in RR | 0 < x < i}$. \ Determine $union.big_(i >= 1) A_i$ and $inter.big_(i >= 1) A_i$, justifying the second. 
+
+$union.big_(i >= 1) A_i = {0, infinity}$
+
+$inter.big_(i >= 1) A_i = {0,1}$. This is because the set notation denotes that sets begin with $i = 1$. Thus, the only elements that are the same across all sets are those between 0 and 1.
+#pagebreak()
+7.8. Let $A={x},B={y,z}$. Write out the sets in (a)-(c) explicitly.
+
+a. $cal(P)(B)={emptyset,{y},{z},{y,z}}$
+
+b. $A times cal(P)(B)={(x,emptyset),{x,y},{x,z},{x,y,z}}$
+
+c. $cal(P)(A times B)={emptyset,{(x,y)},{(x,z)},{(x,y),(x,z)}}$
+
+d. $|cal(P)(cal(P)(B))| = 2^(|cal(P)(B)|) = 2^4 = 16$
+=
+7.9. Prove that for all sets $A,B$:
+
+a. $cal(P)(A) inter cal(P)(B) = cal(P)(A inter B)$
+
+$cal(P)(A)$ and $cal(P)(B)$ are defined as all the combinations of sets (including $emptyset$) in $A$ and $B$ respectively.
+
+The intersection of the two power sets therefore will be the set of identical combinations in $A$ and $B$.
+
+This is the definition of $cal(P)(A inter B)$.
+
+b. $cal(P)(A) union cal(P)(B) subset.eq cal(P)(A union B)$, and give an example in which the two sides are not equal.
+
+$cal(P)(A)$ and $cal(P)(B)$ are defined as all the combinations of sets (including $emptyset$) in $A$ and $B$ respectively.
+
+The union of the two power sets will therefore be the set of combinations in $A$, and the set of combinations in $B$.
+
+$cal(P)(A union B)$ is the set of combinations of all elements in A and B together, which is a superset of the union of the two powersets.
+
+Consider: $A={emptyset},B={1}$
+
+$cal(P)(A) = {emptyset, {emptyset}}, cal(P)(B) = {emptyset, {1}}$
+
+$cal(P)(A) union cal(P)(B) = {emptyset, {1}}$
+
+$A union B = {emptyset,1}$
+
+$cal(P)(A union B) = {emptyset, {emptyset}, {1}, {emptyset, 1}}$
+
+$cal(P)(A) union cal(P)(B) subset.eq cal(P)(A union B)$, and the two sides are not equal.
+
+= Section 9: Functions
+#divider()
+*TODO*
