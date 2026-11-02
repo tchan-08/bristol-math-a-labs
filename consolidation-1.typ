@@ -761,4 +761,52 @@ $cal(P)(A) union cal(P)(B) subset.eq cal(P)(A union B)$, and the two sides are n
 
 = Section 9: Functions
 #divider()
-*TODO*
+8.1. Let $f:{0,1,...,9} -> {0,1,2,3,4}$ be defined by $f(n)=n^2 mod 5$
+
+a. What is the image of $f$? Is it equal to the codomain, and what does this tell you about $f$?
+
+$f(0)=0, f(1)=1,f(2)=4,f(3)=4,f(4)=1,f(5)=0,f(6)=1, f(7)=4, f(8)=4, f(9)=1$
+
+$"im"(f)={0,1,4}$
+
+This is not equal to the codomain, thus $f$ is neither injective nor surjective.
+
+b. What is the preimage $f^(-1)({4})$?
+
+$f^(-1)({4})={2,3,7,8}$
+
+$"im"^(-1)({2,3,7,8})={4}$
+
+c. What is the (direct) image of ${1,2,3}$ under $f$?
+
+$"im"(f({1,2,3}))={1,4}$
+=
+8.2. Decide whether each function is injective, surjective, bijective (both), or neither. Justify briefly.
+
+a. $f: ZZ -> ZZ, f(x) = 2x + 1$
+
+This function is bijective, as each output has a unique input mapped to it, and each element in the codomain is hit.
+
+b. $f: RR -> RR, f(x) = x^3$
+
+This function is surjective, but not injective, as outputs are not mapped to a unique input, but each element in the codomain is hit.
+
+c. $f: RR -> RR, f(x) = x^2 - 1$
+
+This function is neither injective nor surjective, as not elements in the codomain are hit, and not all outputs are mapped to unique inputs.
+
+d. $f: NN -> NN, f(n) = floor(n/2)$
+
+This function is surjective, but not injective, as not all outputs are mapped to a unique input, but all elements in the codomain are hit.
+=
+9.3. Find a non-trivial bijection from the open interval $(0,1)$ to $(0,infinity)$. State its inverse and verify that the two compose to the identity.
+
+$f(x)=x/(1-x)$
+
+$f^(-1)(x)=x/(1+x)$
+
+$f(x) compose f^(-1)(x) = (x/(1+x))/(1-(x/(1+x))) = x/(1-x)$
+=
+9.4. Recall $(g compose f)(x)=g(f(x))$.
+
+a. On $A={0,1,2,3}$, let $f(a)=(a+2) mod 4$ *TODO*
