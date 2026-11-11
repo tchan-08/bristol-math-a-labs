@@ -809,4 +809,72 @@ $f(x) compose f^(-1)(x) = (x/(1+x))/(1-(x/(1+x))) = x/(1-x)$
 =
 9.4. Recall $(g compose f)(x)=g(f(x))$.
 
-a. On $A={0,1,2,3}$, let $f(a)=(a+2) mod 4$ *TODO*
+a. On $A={0,1,2,3}$, let $f(a)=(a+2) mod 4$ and $g(a) = 3a mod 4$. Write $g compose f$ both as a set of pairs and as a formula.
+
+$g compose f = {(0, 2), (1, 1), (2, 0), (3, 3)}$
+
+Let $h(a) = (g compose f) (a)$
+
+$h(a) = (3((a + 2) mod 4) mod 4)$
+
+b. On $RR$, let $f(x) = x - 3$, $g(x) = x^2$ and $h(x) = 2x$. Find $h compose g compose f$ as a formula and evaluate it at $x=5$.
+
+Let $E(x) = h compose g compose f$
+
+$E(x) = 2(x-3)^2$
+
+$E(5) = 8$
+
+c. On $S = {1,2,3,4}$, let $f = {(1,3),(2,1),(3,4),(4,2)}$ and $g = {(1,1),(2,3),(3,3),(4,2)}$. Write $f compose g compose g$ as a set of pairs.
+
+$f compose g compose g = {(1,3),(2,4),(3,4),(4,4)}$
+=
+9.5. Let $f : A -> B$ and $g : B -> C$.
+
+a. Prove that if $g compose f$ is surjective, then $g$ is surjective.
+
+Let $h(x) = g compose f$
+
+Assume $h(x)$ is surjective.
+
+This means that $h(x)$ maps inputs to every possible element in the codomain.
+
+As $h(x)$ composes $g compose f$, this means that the outputs of $f$ map to every element in the set $C$.
+
+This means that $g$ is surjective, as all inputs (the outputs of $f$) map to every element in the codomain in $g$, $C$.
+
+b. Give an example showing that $f$ need not be surjective even when $g compose f$.
+
+Consider $f : RR -> RR, f(x) = x^2, g : RR -> RR^+, x$
+=
+9.6. Give an example of an injective function that has no inverse, and explain why it has none.
+
+$ f(x) = -x $
+
+There is no inverse, as this function is one to many, i.e. each input has multiple outputs
+
+= Section 10: Relations
+#divider()
+10.1. Let $A={1,2,3,4},B={a,b,c},C{x,y,z}$, with relations $R subset.eq A times B$ and $S subset.eq B times C$ given by
+
+$ R={(1,a),(1,b), (2,b), (3,c), (4,c)}, $
+
+$ S={(a,x),(b,y),(b,z),(c,z)}. $
+
+a. Write $R^(-1).$ $R^(-1)={(a,1),(b,1),(b,2),(c,3),(c,4)}$
+
+b. Write down $S compose R$. $S compose R={(1,x),(1,y), (2,y), (2,z),(3,z),(4,z)}$
+
+c. Verify that $(S compose R)^(-1) = R^(-1) compose S^(-1)$.
+
+$(S compose R)^(-1) = {(x,1),(y,1)),(y,2),(z,2)),(z,3),(z,4)}$
+
+$S^(-1) = {(x,a),(y,b),(z,b),(z,c)}$
+
+$R^(-1) compose S^(-1)={(x,1),(y,1)),(y,2),(z,2)),(z,3),(z,4)}$
+
+$checkmark$
+=
+10.2. Let $R,S,T subset.eq A times A$ be relations on a set $A$. Prove or disprove each statement. If an equality does not always hold, give a concrete counterexample.
+
+*TODO*
