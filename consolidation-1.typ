@@ -874,7 +874,127 @@ $S^(-1) = {(x,a),(y,b),(z,b),(z,c)}$
 $R^(-1) compose S^(-1)={(x,1),(y,1)),(y,2),(z,2)),(z,3),(z,4)}$
 
 $checkmark$
-=
+#pagebreak()
 10.2. Let $R,S,T subset.eq A times A$ be relations on a set $A$. Prove or disprove each statement. If an equality does not always hold, give a concrete counterexample.
 
-*TODO*
+a. $(R union S)^(-1) = R^(-1) union S^(-1)$
+
+Let $(a,b) in (R union S)^(-1)$
+
+$(b,a) in R union S$
+
+$(b,a) in R or (b,a) in S$
+
+$(a,b) in R^(-1) or (a,b) in S^(-1)$
+
+$(a,b) in R^(-1) union S^(-1)$
+
+$top$
+
+b. $T compose (S compose R) = (T compose S) compose R$
+
+Let $(a,d) in T compose (S compose R)$
+
+$(a,c) in S compose R and (c,d) in T$
+
+$(a,b) in R and (b,c) in S and (c,d) in T$
+
+Let $(a,d) in (T compose S) compose R$
+
+$(a,b) in R and (b,d) in T compose S$
+
+$(a,b) in R and (b,c) in S and (c,d) in T$
+
+$top$
+
+c. $(R inter S) compose T = (R compose T) inter (S compose T)$
+
+Let $R={(1,2)}, S={(3,2)},T={(0,1),(0,3)}$
+
+$R inter S = emptyset$
+
+$(R inter S) compose T = emptyset$
+
+$R compose T = {(0,2)}$
+
+$S compose T = {(0,2)}$
+
+$(R compose T) inter (S compose T) = {(0,2)}$
+
+${(0,2)} != emptyset$
+
+$bot$
+#pagebreak()
+10.3. On $NN times NN$, define $(a_1,b_1) prec.eq (a_2, b_2)$ if $a_1 < a_2$, or if $a_1 = a_2$ and $b_1 <= b_2$ (the _lexicographic_ order). Prove that $prec.eq$ is a partial order, and that it is total.
+
+Reflexivity: Let $a,b$ be arbitrary elements. $(a,b) prec.eq (a,b)$, because $a = a and b <= b$.
+
+Antisymmetry: Consider $(a,b) prec.eq (c,d) and (c,d) prec.eq (a,b)$. Either we can have $a < c and c < a$ or $a = c and c = a$. Since the former is contradictory, this means $a = c$. The same can be applied to $b$ and $d$, such that $b = d$.
+
+Transitivity: Consider $(a,b) prec.eq (c,d) and (c,d) prec.eq (e,f)$. Either we have $a < c and b <= d$, in this case $a < e and b <= f$, or we have $a = c and b <= d$, in this case we have $(a = e) or (a < e) and b <= f$
+
+Totality: Every element in the set $NN times NN$ can be compared with each other via $prec.eq$, as natural numbers can either be equal to or less than or equal to each other. Therefore, any pair within the natural numbers can be formed.
+
+Thus, the order is both partial and total.
+=
+10.4. On $RR$, define $x ~ y$ if $x - y in ZZ$.
+
+a. Prove that $~$ is an equivalence relation.
+
+Let $a,b,c$ be arbitrary real numbers.
+
+Reflexivity: $a ~ a$ means that $a - a in ZZ$. This is true, as $a - a = 0$.
+
+Symmetry: $a ~ b$ implies $a - b = q, q in ZZ$. $b ~ a -> b - a = -q, q in ZZ$.
+
+Transitivity: $a ~ b, b ~ c -> a - b = q and b - c = r, q,r in ZZ$
+
+$a = q + b, c = b - r$
+
+$a ~ c = (q + b) - (b - r) = q + r in ZZ$
+
+Therefore, $~$ is an equivalence relation.
+
+b. Describe the equivalence class of an arbitrary $x in RR$, and say how many classes contain an element of the interval $[0,1)$.
+
+$[x] = {n | x + n in ZZ}$
+
+There are infinitely many classes, as $x in RR$, with infinitely many pairs formed such that $x + n in ZZ$
+=
+10.5, Let $D = {1,2,3,4,5,6,7,8,9,10,15,30}$, the divisors of 30.
+
+a. Let $R(a,b)$ hold if $a$ divides $b$. State which of reflexivity, symmetry, antisymmetry and transitivity $R$ has. Is it a partial order? Is it total? Give two incomparable elements if they exist.
+
+Reflexivity: $a$ divides $a$ $checkmark$
+
+Symmetry: If $a$ divides $b$, $b$ will not divide $a$ unless $a = b$ $crossmark$ 
+
+Antisymmetry: If $a$ divides $b$ and $b$ divides $a$, $a = b$ $checkmark$
+
+Transitivity: If $a$ divides $b$, and $b$ divides $c$, then $b = n a$, and $c = m b$, thus $c = m n a$ $checkmark$.
+
+Partial: Reflexive + Antisymmetric + Transitive $checkmark$
+
+Totality: There is at least one pair $(a,b) in D$, such that $R(a,b)$. $checkmark$
+
+An uncomparable pair would be $R(2,1)$. 2 does not divide 1.
+
+b. Let $T(a,b)$ hold if $a$ and $b$ have the same number of distinct prime factors. Explain why $T$ is an equivalence relation, and list its equivalence classes.
+
+$T$ is reflexive, as $a$ will have the same number of distinct prime factors as itself.
+
+$T$ is symmetric, as the order of elements in the relation does not work, i.e. if $R(a,b)$ yields $n$ distinct prime factors, $R(b,a)$ will be the same.
+
+$T$ is transitive, as if $R(a,b)$ and $R(b,c)$, $a$ has the same amount of distinct prime factors as $b$, with $b$ having the same number as well to $c$, thus meaning that $n_a = n_c$, where $n$ is the number of distinct prime factors.
+
+$T$ therefore, is an equivalence relation.
+
+$[n=0] = {1}$
+
+$[n=1] = {2,3,4,5,7,8,9}$
+
+$[n=2] = {6,10,15}$
+
+$[n=3] = {30}$
+
+*END OF ASSESSMENT*
